@@ -3,14 +3,14 @@ import json
 from collections import defaultdict
 
 '''
-Storing the directory
+Storing the current directory
 '''
 def current_path():
     search_directory(os.getcwd())
 
 
 '''
-Searches for the directory in the root directory
+Searches for the directory in the root list
 '''
 def search_directory(path):
     root_list = []
@@ -21,12 +21,11 @@ def search_directory(path):
 
 
 '''
-Extracting all files, and extract the exact path that include the juypter file
+Extracting all the files and the exact path that include the juypter file
 '''
 def searching_files(current_dir):
     updated_paths = [] # The path without the juypter file
     paths_juypterfile = [] # The path including the juypter file
-    all_files = []
 
     for path in current_dir:
         if not path.endswith('.ipynb_checkpoints'):
@@ -40,7 +39,7 @@ def searching_files(current_dir):
                         paths_juypterfile.append(include_juypter)
 
 
-    reading_files(updated_paths, paths_juypterfile)
+    #reading_files(updated_paths, paths_juypterfile)
 
 
 '''
@@ -152,6 +151,7 @@ def markdown_subheaders(headers):
                 sub_header = sub_header.lstrip()
                 sub_header = sub_header.rstrip('\n')
                 list_subheaders.append(sub_header)
+
             if [file_path_update, juypter_file, list_subheaders] not in sub_headers:
                 sub_headers.append([file_path_update, juypter_file, list_subheaders])
 
