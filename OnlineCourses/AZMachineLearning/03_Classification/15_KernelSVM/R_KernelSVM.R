@@ -9,7 +9,9 @@ df$Gender <- factor(df$Gender,
                     levels = c('Male','Female'),
                     labels = c(0,1))
 
+######################################################
 # Splitting the dataset into training and testing
+######################################################
 library(caTools)
 set.seed(123)
 split <- sample.split(df$Purchased, SplitRatio = 0.8)
@@ -25,7 +27,9 @@ training.set$Gender <- as.numeric(training.set$Gender)
 testing.set$Gender <- as.numeric(testing.set$Gender)
 
 
+######################################################
 # Feature Scaling
+######################################################
 testing.set[, c("Age","EstimatedSalary")] <-  
   scale(subset(testing.set, select = c("Age", "EstimatedSalary")))
 

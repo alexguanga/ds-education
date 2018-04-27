@@ -79,7 +79,10 @@ measurePrecisionRecall <- function(actual_labels, predict){
 # Encoding the target feature as a factor
 df$Liked <- factor(df$Liked, levels = c(0,1))
 
+######################################################
 # Splitting the dataset into training and testing
+######################################################
+
 library(caTools)
 set.seed(123)
 split <- sample.split(df$Liked, SplitRatio = 0.8)
